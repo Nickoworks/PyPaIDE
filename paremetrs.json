@@ -1,0 +1,13 @@
+{
+    "run_command": "python3",
+    "font-size": "18",
+    "italic-text": false,
+    "short_cuts": {
+        "save": "Ctrl+S",
+        "run-and-save": "Ctrl+R",
+        "delete-file": "Ctrl+D",
+        "edit-file": "Ctrl+E",
+        "add-file": "Ctrl+A",
+        "add-dir": "Ctrl+J"
+    }
+}
