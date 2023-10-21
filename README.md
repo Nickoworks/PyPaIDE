@@ -39,7 +39,12 @@ And Highlight python syntax.
 <img width="524" alt="Screenshot 2023-10-21 at 20 27 18" src="https://github.com/Imm0rta11/PyPaIDE/assets/132219935/8aac3193-268e-4a6d-9791-a5b1379c8229">
 
 # Run program
-For macOS or Linux.
+This program need its modules
+```
+1.PyQt5
+```
+
+for macOS or Linux.
 ```
 python3 Editor.py
 ```
