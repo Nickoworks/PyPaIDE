@@ -41,7 +41,7 @@ And Highlight python syntax.
 # Run program
 This program need its modules
 ```
-1.PyQt5
+PyQt5
 ```
 
 for macOS or Linux.
