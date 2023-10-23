@@ -1,5 +1,7 @@
 # PyPaIDE
+
 IDE for python scripts
+![icon](https://github.com/Imm0rta11/PyPaIDE/assets/132219935/7d41a059-95e9-4307-b809-9fbdbeae09b1)
 
 IDE supported this format to save file.
 ```
