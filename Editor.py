@@ -1,4 +1,4 @@
-#Mini IDE
+#PyPaIDE main file
 #Lang python
 #By Imm0rtall
 #imports and test case for import
@@ -9,7 +9,7 @@ try:
     import subprocess
     import save_for_ui
     from PyQt5 import QtWidgets
-    from PyQt5.QtWidgets import QApplication, QWidget, QPlainTextEdit, QTextEdit, QVBoxLayout, QFileDialog, QListView, QHBoxLayout, QShortcut
+    from PyQt5.QtWidgets import QApplication, QWidget, QPlainTextEdit, QTextEdit, QVBoxLayout, QFileDialog, QListView, QHBoxLayout, QShortcut, QAction, QMainWindow
     from PyQt5.QtGui import QFont, QFontDatabase, QColor, QSyntaxHighlighter, QTextCharFormat, QIcon, QKeyEvent, QKeySequence
     from highlight_pattern import high_light_pattern
     from save_for_ui import Ui_Form_save
@@ -19,20 +19,25 @@ try:
     from set_editor import Ui_Form_set_editor
     from add_dir_ui import Ui_Form_add_dir
     from dialog_ui import Ui_Form_del_dialog
+    from about_ui import AboutDialog
     print('LOG: Import OK')
 except ImportError:
     print('LOG: Import ERROR')
-    sys.exit()
+
 
 
 # Class
-class Editor(QWidget):
+class Editor(QMainWindow):
     """MAIN CLASS"""
     def __init__(self):
         try:
             #class init and load config, set layout, setup UI
             super().__init__()
-            self.setWindowTitle('Mini IDE')
+            self.menubar = self.menuBar()
+            self.helpMenu = self.menubar.addMenu('Help')
+            self.aboutAction = QAction('About', self)
+            self.helpMenu.addAction(self.aboutAction)
+            self.setWindowTitle('PyPaIDE')
             self.window_width, self.window_height = 1200, 800
             self.del_accest = False
             with open('paremetrs.json') as f:
@@ -45,6 +50,8 @@ class Editor(QWidget):
             self.high_light_editor = high_light_pattern(self)
             self.setMinimumSize(self.window_width, self.window_height)
             self.setStyleSheet(f'font-size: {self.font_size}px;')
+            self.central_widget = QWidget(self)
+            self.setCentralWidget(self.central_widget)
 
             self.ui_save = Ui_Form_save()
             self.ui_save.setupUi(Form_save)
@@ -60,16 +67,14 @@ class Editor(QWidget):
             self.ui_add_dir.setupUi(Form_add_dir)
             self.ui_del_dialog = Ui_Form_del_dialog()
             self.ui_del_dialog.setupUi(Form_del_dialog)
+            self.ui_about = AboutDialog()
+            self.ui_about.setupUi(Form_about)
 
             self.layout = QHBoxLayout()
-            self.layout_button = QVBoxLayout()
-            self.setLayout(self.layout)
 
-            self.tool_button = QtWidgets.QPushButton()
-            self.File_list = QtWidgets.QListWidget()
+            self.tool_button = QtWidgets.QPushButton('T\no\no\nl\ns', self.central_widget)
+            self.File_list = QtWidgets.QListWidget(self.central_widget)
 
-
-            self.tool_button.setText('T\no\no\nl\ns')
             self.layout.addWidget(self.File_list)
             self.layout.addWidget(self.tool_button)
             self.high_light_editor.setUpEditor()
@@ -77,6 +82,7 @@ class Editor(QWidget):
             self.File_list.setFixedWidth(150)
             self.tool_button.setFixedHeight(500)
             self.tool_button.setFixedWidth(40)
+            self.central_widget.setLayout(self.layout)
             with open('file_list.json') as f:
                 self.data_file = json.load(f)
             self.File_list.addItems(self.data_file)
@@ -121,6 +127,7 @@ class Editor(QWidget):
                 print(f'LOG: Error {FileNotFoundError}')
                 sys.exit()
 
+
     # Function init
     try:
         @staticmethod
@@ -150,6 +157,9 @@ class Editor(QWidget):
         @staticmethod
         def _show_del_dialog():
             Form_del_dialog.show()
+
+        def _show_about(self):
+            Form_about.show()
 
         #set format file for save
         def _set_format_file(self, index):
@@ -455,6 +465,8 @@ class Editor(QWidget):
             self.ui_del_dialog.buttonBox.accepted.connect(self._accept_del_dialog)
             # dialog del eject
             self.ui_del_dialog.buttonBox.rejected.connect(self._reject_del_dialog)
+            # connect show about
+            self.aboutAction.triggered.connect(self._show_about)
         finally:
             print('LOG: All button is connected')
 
@@ -477,6 +489,10 @@ if __name__ == '__main__':
     Form_add_dir = QtWidgets.QWidget()
     app_del_dialog = QtWidgets.QMdiSubWindow()
     Form_del_dialog = QtWidgets.QWidget()
+    app_about = QtWidgets.QMdiSubWindow()
+    Form_about = QtWidgets.QWidget()
+    app_about = QtWidgets.QMdiSubWindow()
+    Form_about = QtWidgets.QWidget()
     #set main class and show main window
     editor = Editor()
     editor.show()

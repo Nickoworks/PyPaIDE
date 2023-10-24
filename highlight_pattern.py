@@ -71,7 +71,7 @@ class high_light_pattern:
         pattern = r'^\s+@\w+'
         self.highlighter.add_mapping(pattern, class_decorator)
 
-        self.ai_editor.editor = QPlainTextEdit()
+        self.ai_editor.editor = QPlainTextEdit(self.ai_editor.central_widget)
 
         font = QFontDatabase.systemFont(QFontDatabase.FixedFont)
         self.ai_editor.editor.setFont(font)
