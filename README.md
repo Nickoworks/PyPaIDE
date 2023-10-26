@@ -2,8 +2,6 @@
 
 ![icon](https://github.com/Imm0rta11/PyPaIDE/assets/132219935/7d41a059-95e9-4307-b809-9fbdbeae09b1)<br/>
 IDE for python scripts<br/>
-Builded program only (macOS) link.<br/>
-[Download](https://mega.nz/file/C0ZhxZBK#JpqGoIZvHXrtUQE0bDu18ta0kjz7tQ63wyyMGUBHo1I)<br/>
 
 IDE supported this format to save file.
 ```
