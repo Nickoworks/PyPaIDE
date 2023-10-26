@@ -1,3 +1,4 @@
+# Only macOS using py2app
 from setuptools import setup
 
 APP = ['Editor.py']
@@ -8,9 +9,6 @@ OPTIONS = {
      'CFBundleName': 'PyPaIDE',
      'CFBundleShortVersionString': '1.0',
      'CFBundleGetInfoString': 'Python IDE',
-     'CFBundleExecutable': 'main',
-     'CFBundleIdentifier': 'com.apple.icns',
-     'CFBundleSignature': '????',
      }
 }
 
