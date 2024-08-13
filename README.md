@@ -51,6 +51,6 @@ for macOS or Linux.
 python3 Editor.py
 ```
 and i use pyuic converter ui->py files
-Enjoy :)
+ Enjoy :)
 
 
