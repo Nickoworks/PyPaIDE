@@ -50,10 +50,6 @@ for macOS or Linux.
 ```
 python3 Editor.py
 ```
-and for Windows.
-```
-python Editor.py
-```
 and i use pyuic converter ui->py files
 Enjoy :)
 
