@@ -1,6 +1,5 @@
 #Mini IDE
 #Lang python
-#By Imm0rtall
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
