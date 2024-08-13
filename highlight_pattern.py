@@ -1,6 +1,5 @@
 #Mini IDE
 #Lang python
-#By Imm0rtall
 try:
     import sys
     from PyQt5.QtWidgets import QPlainTextEdit, QTextEdit
