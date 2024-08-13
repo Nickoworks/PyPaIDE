@@ -54,6 +54,7 @@ and for Windows.
 ```
 python Editor.py
 ```
+and i use pyuic converter ui->py files
 Enjoy :)
 
 
