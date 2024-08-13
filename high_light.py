@@ -1,6 +1,5 @@
 #Mini IDE
 #Lang python
-#By Imm0rtall
 import re
 from PyQt5.QtGui import QSyntaxHighlighter
 
