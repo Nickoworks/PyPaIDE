@@ -1,6 +1,5 @@
 #PyPaIDE main file
 #Lang python
-#By Imm0rtall
 #imports and test case for import
 try:
     import sys
